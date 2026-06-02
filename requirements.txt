@@ -1,0 +1,9 @@
+pillow==10.3.0
+pyyaml==6.0.1
+tqdm~=4.64.1
+python-dateutil~=2.8.2
+requests~=2.31.0
+streamlit~=1.42.0
+openai>=1.0.0
+
+# opencv-python  # 可选：智能裁图的人脸优先检测（不安装时自动回退纯 PIL 显著性裁切）
