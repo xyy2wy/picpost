@@ -13,9 +13,9 @@ from PIL import ImageColor
 from PIL import ImageDraw
 from PIL import ImageFont
 
-from utils import crop_image_to_canvas
+from utils_pkg import crop_image_to_canvas
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
 TITLE_FONT = ROOT_DIR / "fonts" / "AlibabaPuHuiTi-2-85-Bold.otf"
 SUBTITLE_FONT = ROOT_DIR / "fonts" / "AlibabaPuHuiTi-2-45-Light.otf"
 

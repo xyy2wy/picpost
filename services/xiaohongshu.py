@@ -13,9 +13,9 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-from utils import crop_image_to_canvas
+from utils_pkg import crop_image_to_canvas
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_BADGE_FONT = ROOT_DIR / "fonts" / "Roboto-Medium.ttf"
 
 # 默认输出 JPEG 质量（小红书工具产物）。
@@ -264,7 +264,7 @@ def export_multi_ratio(image: Image.Image, sizes: list[tuple[int, int]],
     返回 [((w, h), Image), ...]，每个都是新图，不动原图。
     mode: crop（居中裁切，推荐）/ padding（留白补齐）/ stretch（拉伸）。
     """
-    from utils import resize_image_by_mode
+    from utils_pkg import resize_image_by_mode
 
     results: list[tuple[tuple[int, int], Image.Image]] = []
     for width, height in sizes:

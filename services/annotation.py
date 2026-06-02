@@ -16,7 +16,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
 # 普通字体（气泡 / 纯文字），与 color_service 水印保持一致
 DEFAULT_FONT = ROOT_DIR / "fonts" / "AlibabaPuHuiTi-2-45-Light.otf"
 # 加粗字体（价格标签等需要强调的样式）

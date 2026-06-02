@@ -15,8 +15,8 @@ from PIL import Image
 from PIL.Image import Transpose
 from dateutil import parser
 
-from entity.config import ElementConfig
-from enums.constant import (
+from core.config import ElementConfig
+from core.constants import (
     CAMERA_MAKE_CAMERA_MODEL_VALUE,
     CAMERA_MODEL_LENS_MODEL_VALUE,
     CUSTOM_VALUE,
@@ -34,11 +34,11 @@ from enums.constant import (
     PARAM_VALUE,
     TOTAL_PIXEL_VALUE,
 )
-from utils import calculate_pixel_count
-from utils import extract_attribute
-from utils import extract_gps_info
-from utils import extract_gps_lat_and_long
-from utils import get_exif
+from utils_pkg import calculate_pixel_count
+from utils_pkg import extract_attribute
+from utils_pkg import extract_gps_info
+from utils_pkg import extract_gps_lat_and_long
+from utils_pkg import get_exif
 
 logger = logging.getLogger(__name__)
 

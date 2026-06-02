@@ -7,10 +7,10 @@ import atexit
 import logging
 import sys
 
-from enums.constant import AppState, DEBUG
-from init import SEPARATE_LINE, config, root_menu
-from processing_service import list_input_images, process_images
-from utils import stop_exiftool
+from core.constants import AppState, DEBUG
+from cli.setup import SEPARATE_LINE, config, root_menu
+from services.processing import list_input_images, process_images
+from utils_pkg import stop_exiftool
 
 # 程序退出时关闭 ExifTool 进程
 atexit.register(stop_exiftool)

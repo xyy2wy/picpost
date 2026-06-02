@@ -8,8 +8,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-from entity.config import Config
-from entity.image_processor import (
+from core.config import Config
+from core.processors import (
     BackgroundBlurProcessor,
     BackgroundBlurWithWhiteBorderProcessor,
     CustomWatermarkProcessor,
@@ -22,8 +22,8 @@ from entity.image_processor import (
     WatermarkLeftLogoProcessor,
     WatermarkRightLogoProcessor,
 )
-from entity.menu import Menu, SubMenu, MenuItem
-from enums.constant import (
+from cli.menu import Menu, SubMenu, MenuItem
+from core.constants import (
     MODEL_NAME, MODEL_VALUE,
     MAKE_NAME, MAKE_VALUE,
     LENS_NAME, LENS_VALUE,
@@ -41,16 +41,16 @@ from enums.constant import (
     DATETIME_FILENAME_NAME, DATETIME_FILENAME_VALUE,
     GEO_INFO, GEO_INFO_VALUE,
 )
-from gen_video import generate_video
-from xiaohongshu_cli import run_annotate
-from xiaohongshu_cli import run_collage
-from xiaohongshu_cli import run_compose
-from xiaohongshu_cli import run_cover
-from xiaohongshu_cli import run_multi_ratio
-from xiaohongshu_cli import run_page_numbers
-from xiaohongshu_cli import run_publish_draft
-from xiaohongshu_cli import run_split
-from color_service import FILTER_OPTIONS
+from services.video import generate_video
+from cli.xiaohongshu import run_annotate
+from cli.xiaohongshu import run_collage
+from cli.xiaohongshu import run_compose
+from cli.xiaohongshu import run_cover
+from cli.xiaohongshu import run_multi_ratio
+from cli.xiaohongshu import run_page_numbers
+from cli.xiaohongshu import run_publish_draft
+from cli.xiaohongshu import run_split
+from services.color import FILTER_OPTIONS
 
 # ---------- 日志配置 ----------
 

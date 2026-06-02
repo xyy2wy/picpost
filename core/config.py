@@ -10,11 +10,11 @@ import yaml
 from PIL import Image
 from PIL import ImageFont
 
-from enums.constant import CUSTOM_VALUE
-from enums.constant import LOCATION_LEFT_BOTTOM
-from enums.constant import LOCATION_LEFT_TOP
-from enums.constant import LOCATION_RIGHT_BOTTOM
-from enums.constant import LOCATION_RIGHT_TOP
+from core.constants import CUSTOM_VALUE
+from core.constants import LOCATION_LEFT_BOTTOM
+from core.constants import LOCATION_LEFT_TOP
+from core.constants import LOCATION_RIGHT_BOTTOM
+from core.constants import LOCATION_RIGHT_TOP
 
 
 class ElementConfig:

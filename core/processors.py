@@ -9,24 +9,24 @@ from PIL import Image
 from PIL import ImageFilter
 from PIL import ImageOps
 
-from entity.config import Config
-from entity.image_container import ImageContainer
-from enums.constant import GRAY
-from enums.constant import TRANSPARENT
-from utils import append_image_by_side
-from utils import concatenate_image
-from utils import merge_images
-from utils import padding_image
-from utils import resize_image_by_mode
-from utils import resize_image_with_height
-from utils import resize_image_with_width
-from utils import square_image
-from utils import text_to_image
+from core.config import Config
+from core.container import ImageContainer
+from core.constants import GRAY
+from core.constants import TRANSPARENT
+from utils_pkg import append_image_by_side
+from utils_pkg import concatenate_image
+from utils_pkg import merge_images
+from utils_pkg import padding_image
+from utils_pkg import resize_image_by_mode
+from utils_pkg import resize_image_with_height
+from utils_pkg import resize_image_with_width
+from utils_pkg import square_image
+from utils_pkg import text_to_image
 
-from color_service import apply_adjustments
-from color_service import apply_filter
-from color_service import auto_enhance
-from color_service import add_text_watermark
+from services.color import apply_adjustments
+from services.color import apply_filter
+from services.color import auto_enhance
+from services.color import add_text_watermark
 
 printable = set(string.printable)
 
@@ -416,7 +416,7 @@ class UniformResizeProcessor(ProcessorComponent):
         if mode == 'smart':
             # 智能裁切：保留主体 / 人脸；任何异常回退居中裁切。
             try:
-                from smart_crop_service import smart_crop
+                from services.smart_crop import smart_crop
                 resized_img = smart_crop(container.get_watermark_img(), width, height)
             except Exception:
                 resized_img = resize_image_by_mode(

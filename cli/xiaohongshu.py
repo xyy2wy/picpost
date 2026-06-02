@@ -10,26 +10,26 @@ from pathlib import Path
 
 from PIL import Image
 
-from utils import get_file_list
-from annotation_service import ANNOTATION_STYLES
-from annotation_service import Annotation
-from annotation_service import add_annotations
-from compose_service import COMPARISON_LAYOUTS
-from compose_service import make_comparison
-from compose_service import stack_vertical
-from publish_service import PublishError
-from publish_service import build_publish_draft
-from xiaohongshu_service import BADGE_POSITIONS
-from xiaohongshu_service import MULTI_RATIO_SIZES
-from xiaohongshu_service import SPLIT_MODES
-from xiaohongshu_service import add_page_numbers
-from xiaohongshu_service import export_multi_ratio
-from xiaohongshu_service import make_collage
-from xiaohongshu_service import save_jpg
-from xiaohongshu_service import split_image
-from cover_service import COVER_SIZES
-from cover_service import TITLE_POSITIONS
-from cover_service import make_cover
+from utils_pkg import get_file_list
+from services.annotation import ANNOTATION_STYLES
+from services.annotation import Annotation
+from services.annotation import add_annotations
+from services.compose import COMPARISON_LAYOUTS
+from services.compose import make_comparison
+from services.compose import stack_vertical
+from services.publish import PublishError
+from services.publish import build_publish_draft
+from services.xiaohongshu import BADGE_POSITIONS
+from services.xiaohongshu import MULTI_RATIO_SIZES
+from services.xiaohongshu import SPLIT_MODES
+from services.xiaohongshu import add_page_numbers
+from services.xiaohongshu import export_multi_ratio
+from services.xiaohongshu import make_collage
+from services.xiaohongshu import save_jpg
+from services.xiaohongshu import split_image
+from services.cover import COVER_SIZES
+from services.cover import TITLE_POSITIONS
+from services.cover import make_cover
 
 
 def _prompt_int(prompt: str, default: int, minimum: int = 1) -> int:

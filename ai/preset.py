@@ -22,9 +22,9 @@ from typing import Any
 from PIL import Image
 from PIL import ImageOps
 
-from color_service import FILTER_PRESETS
-from processing_service import LAYOUT_OPTIONS
-from processing_service import UNIFORM_RESIZE_MODES
+from services.color import FILTER_PRESETS
+from services.processing import LAYOUT_OPTIONS
+from services.processing import UNIFORM_RESIZE_MODES
 
 
 LAYOUT_IDS = [value for _, value in LAYOUT_OPTIONS]

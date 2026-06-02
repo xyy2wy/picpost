@@ -2,11 +2,15 @@
 
 ## Project Structure & Module Organization
 - `main.py` is the CLI entry point that loads menu state and runs batch image processing.
-- Core logic is split across:
-  - `entity/` for data objects and processor chain components.
-  - `enums/` for shared constants.
-  - `utils.py` for file, image, and helper utilities.
-  - `init.py` for configuration loading and menu wiring.
+- `web_app.py` is the Streamlit Web entry point.
+- Core logic is organized into packages:
+  - `core/` for data models (config, container), constants, and processor chain.
+  - `services/` for functional services (color, annotation, compose, cover, processing, etc.).
+  - `ai/` for AI capabilities (preset suggestion, style pack, caption generation).
+  - `cli/` for CLI interaction (menu system, setup, xiaohongshu CLI commands).
+  - `web/` for Streamlit Web frontend (app, preview).
+  - `utils_pkg/` for shared utility functions (ExifTool, image manipulation, file ops).
+- Legacy shim files at root level (e.g., `color_service.py`, `processing_service.py`) re-export from new locations for backward compatibility.
 - Runtime resources live in `fonts/`, `logos/`, `images/`, `input/`, and `output/`.
 - Build/packaging files: `main.spec`, `build_win_pkg.spec`, and GitHub workflows in `.github/workflows/`.
 - User-editable behavior is primarily controlled by `config.yaml`.
@@ -15,12 +19,14 @@
 - Install dependencies:
   - `pip3 install -r requirements.txt`
 - Local initialization (downloads ExifTool + deps):
-  - `chmod +x install.sh && ./install.sh`
-- Run locally:
+  - `chmod +x scripts/install.sh && ./scripts/install.sh`
+- Run locally (CLI):
   - `python3 main.py`
+- Run locally (Web):
+  - `streamlit run web_app.py`
 - Build executable with PyInstaller:
-  - `pyinstaller main.spec`
-  - `pyinstaller build_win_pkg.spec` (Windows release package layout)
+  - `pyinstaller scripts/main.spec`
+  - `pyinstaller scripts/build_win_pkg.spec` (Windows release package layout)
 
 ## Coding Style & Naming Conventions
 - Use Python style with 4-space indentation and PEP 8-friendly naming.

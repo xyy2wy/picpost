@@ -20,11 +20,11 @@ from PIL import ImageColor
 from PIL import ImageDraw
 from PIL import ImageFont
 
-from utils import resize_image_with_height
-from utils import resize_image_with_width
+from utils_pkg import resize_image_with_height
+from utils_pkg import resize_image_with_width
 
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
 # 标签使用加粗字体，与项目其他模块保持一致
 BOLD_FONT = ROOT_DIR / "fonts" / "AlibabaPuHuiTi-2-85-Bold.otf"
 

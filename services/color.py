@@ -16,7 +16,7 @@ from PIL import ImageFont
 from PIL import ImageOps
 
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_WATERMARK_FONT = ROOT_DIR / "fonts" / "AlibabaPuHuiTi-2-45-Light.otf"
 
 

@@ -19,7 +19,7 @@ import math
 from PIL import Image
 from PIL import ImageFilter
 
-from utils import crop_image_to_canvas
+from utils_pkg import crop_image_to_canvas
 
 
 # 计算显著性重心前，将灰度图下采样到的最大边长（控制纯 Python 计算量）

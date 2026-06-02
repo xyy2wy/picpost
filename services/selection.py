@@ -15,8 +15,8 @@ from typing import Iterable
 
 from PIL import Image
 
-from xiaohongshu_service import DEFAULT_OUTPUT_QUALITY
-from xiaohongshu_service import save_jpg
+from services.xiaohongshu import DEFAULT_OUTPUT_QUALITY
+from services.xiaohongshu import save_jpg
 
 
 class SelectionError(Exception):

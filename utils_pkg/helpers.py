@@ -16,7 +16,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageOps
 
-from enums.constant import TRANSPARENT
+from core.constants import TRANSPARENT
 
 if platform.system() == 'Windows':
     EXIFTOOL_PATH = Path('./exiftool/exiftool.exe')

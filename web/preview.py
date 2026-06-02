@@ -17,9 +17,9 @@ from pathlib import Path
 
 from PIL import Image
 
-from entity.config import Config
-from entity.image_container import ImageContainer
-from processing_service import create_processor_chain
+from core.config import Config
+from core.container import ImageContainer
+from services.processing import create_processor_chain
 
 logger = logging.getLogger(__name__)
 
