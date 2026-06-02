@@ -37,7 +37,7 @@
 git clone https://github.com/xyy2wy/picpost.git ~/picpost
 cd ~/picpost
 pip3 install -r requirements.txt
-chmod +x install.sh && ./install.sh
+chmod +x scripts/install.sh && ./scripts/install.sh
 ```
 
 ### 命令行模式
@@ -91,24 +91,55 @@ streamlit run web_app.py
 
 ```
 picpost/
-├── main.py                  # CLI 入口
-├── web_app.py               # Web 前端
-├── processing_service.py    # 处理管线
-├── ai_preset_service.py     # AI 多服务商（预设/选图/文案/风格建议）
-├── selection_service.py     # 选片
-├── style_pack_service.py    # 风格包
-├── preview_service.py       # 实时预览
-├── smart_crop_service.py    # 智能裁图
-├── annotation_service.py    # 文字标注
-├── compose_service.py       # 长图拼接/对比图
-├── publish_service.py       # 发布草稿打包
-├── color_service.py         # 调色/滤镜/防盗水印
-├── cover_service.py         # 首图文字卡片
-├── xiaohongshu_service.py   # 切图/九宫格/拼图/页码/多比例
-├── config.yaml              # 用户配置
-├── entity/                  # 配置/容器/处理器/菜单
-├── fonts/ logos/             # 字体与 Logo 资源
-└── docs/                    # 详细文档
+├── main.py                      # CLI 入口
+├── web_app.py                   # Web 前端入口（Streamlit）
+├── config.yaml                  # 用户配置
+├── requirements.txt             # Python 依赖
+│
+├── core/                        # 核心层：数据模型与处理器
+│   ├── constants.py             #   常量定义（元素名称/值、状态枚举）
+│   ├── config.py                #   Config 类：读写 config.yaml
+│   ├── container.py             #   ImageContainer：封装图片 + EXIF
+│   └── processors.py            #   处理器链（Composite 模式，10+ 布局）
+│
+├── services/                    # 服务层：纯函数业务逻辑
+│   ├── processing.py            #   处理管线：构建处理链、批量处理
+│   ├── color.py                 #   调色 / 滤镜 / 自动增强 / 防盗水印
+│   ├── annotation.py            #   文字贴纸 / 图上标注
+│   ├── compose.py               #   长图拼接 / 前后对比
+│   ├── cover.py                 #   首图文字卡片
+│   ├── xiaohongshu.py           #   切图 / 拼图 / 页码 / 多比例导出
+│   ├── smart_crop.py            #   智能裁切（人脸优先 / 显著性）
+│   ├── selection.py             #   选片（缩略图、打星、过滤、导出）
+│   ├── publish.py               #   发布草稿打包
+│   └── video.py                 #   FFmpeg 视频合成
+│
+├── ai/                          # AI 能力层（可选，需 openai 包）
+│   ├── preset.py                #   AI 预设建议 / 选图 / 文案 / 风格标签
+│   └── style_pack.py            #   风格包 schema / 序列化 / 校验
+│
+├── cli/                         # CLI 交互层
+│   ├── menu.py                  #   菜单组件系统（Composite 模式）
+│   ├── setup.py                 #   配置加载、菜单组装
+│   └── xiaohongshu.py           #   小红书工具 CLI 交互
+│
+├── web/                         # Web 前端层（Streamlit）
+│   ├── app.py                   #   主应用
+│   └── preview.py               #   实时预览生成
+│
+├── utils_pkg/                   # 工具层
+│   └── helpers.py               #   ExifTool、图片缩放/拼接/裁切
+│
+├── scripts/                     # 构建 / 安装脚本
+│   ├── install.sh               #   初始化安装
+│   ├── main.spec                #   PyInstaller 打包
+│   └── build_win_pkg.spec       #   Windows 发布包
+│
+├── fonts/                       # 字体资源
+├── logos/                       # Logo 资源
+├── docs/                        # 文档
+├── input/                       # 输入图片
+└── output/                      # 输出图片
 ```
 
 ## 许可证
